@@ -1,0 +1,191 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-5">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<div class="col-md-7"></div>
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+    <h2>TABLA JOIN</h2>
+    <thead>
+        <tr>
+            <td>RUC</td>
+            <td>RAZÓN SOCIAL</td>
+            <td>Telefono</td>
+            <td>Credito</td>
+            <td>Numero de pedido</td>
+            <td>Fecha de pedido</td>
+            <td>Direccion</td>
+            <td>Correo</td>
+            <td>Familia</td>
+            <td>Modelo</td>
+            <td>Tipo de producto</td>
+            <td>Numero de serie</td>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for clientexxxx in clientexxxx %}
+            <tr>
+                <td>{{ clientexxxx.0}}</td>
+                <td>{{ clientexxxx.1}}</td>
+                <td>{{ clientexxxx.2}}</td>
+                <td>{{ clientexxxx.3}}</td>
+                <td>{{ clientexxxx.4}}</td>
+                <td>{{ clientexxxx.5}}</td>
+                <td>{{ clientexxxx.6}}</td>
+                <td>{{ clientexxxx.7}}</td>
+                <td>{{ clientexxxx.8}}</td>
+                <td>{{ clientexxxx.9}}</td>
+                <td>{{ clientexxxx.10}}</td>
+                <td>{{ clientexxxx.11}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+    
+</table>
+
+<div class="col-md-7"></div>
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+    <h2>TABLA FILTRADA</h2>
+    <thead>
+        <tr>
+            <td>RUC</td>
+            <td>RAZÓN SOCIAL</td>
+            <td>Telefono</td>
+            <td>Credito</td>
+            <td>Numero de pedido</td>
+            <td>Fecha de pedido</td>
+            <td>Direccion</td>
+            <td>Correo</td>
+            <td>Familia</td>
+            <td>Modelo</td>
+            <td>Tipo de producto</td>
+            <td>Numero de serie</td>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for filtro in filtro %}
+            <tr>
+                <td>{{ filtro.0}}</td>
+                <td>{{ filtro.1}}</td>
+                <td>{{ filtro.2}}</td>
+                <td>{{ filtro.3}}</td>
+                <td>{{ filtro.4}}</td>
+                <td>{{ filtro.5}}</td>
+                <td>{{ filtro.6}}</td>
+                <td>{{ filtro.7}}</td>
+                <td>{{ filtro.8}}</td>
+                <td>{{ filtro.9}}</td>
+                <td>{{ filtro.10}}</td>
+                <td>{{ filtro.11}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+<div class="col-md-8"></div>
+<table class="table table-striped table-hover table-bordered table-sm bg-white">
+    <h2>TABLA FILTRADA</h2>
+    <thead>
+        <tr>
+            <td>RUC</td>
+            <td>Numero de pedido</td>
+            <td>Fecha de pedido</td>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for filtroxxx in filtroxxx %}
+            <tr>
+                <td>{{ filtroxxx.0}}</td>
+                <td>{{ filtroxxx.1}}</td>
+                <td>{{ filtroxxx.2}}</td>
+               
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+
+
+
+
+    <div id="BOTONFILTRO">  
+    <form action="/filtro1" method= "POST"">
+        <button class="btn btn-primary btn-block">
+        Filtrar por Crédito < 8500 > 15000
+         </button>
+    </form>
+    </div>
+
+    <div id="BOTONFILTRO">  
+        <form action="/filtro2" method= "POST"">
+            <button class="btn btn-primary btn-block">
+            Filtrar por Familia1
+            </button>
+        </form>
+    </div>
+
+    
+  
+
+    <div id="BOTONFILTRO">  
+        <form action="/datos_extra3" method= "POST"">
+            <button class="btn btn-warning btn-block">
+            Volver a mostrar las tablas sin filtro
+             </button>
+        </form>
+    </div>
+
+       
+    <div id="BOTONFILTRO">  
+        <form action="/filtro4" method= "POST"">
+            <button class="btn btn-primary btn-block">
+            Qué maquinaria necesita mantenimiento
+             </button>
+         </form>
+    </div>
+    
+    <div id="BOTONFILTRO">  
+        <form action="/filtro5" method= "POST"">
+            <button class="btn btn-info btn-block">
+            CONSULTAS PL
+             </button>
+         </form>
+    </div>
+    
+    
+    
+
+    -->
+    
+
+
+
+
+
+</div>
+
+
+{% endblock %}

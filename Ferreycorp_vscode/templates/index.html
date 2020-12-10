@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-5">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<!-- colocamos datos -->
+
+<div class="card card-body">
+    <form action="{{url_for('add_contact')}}" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" name="RUC" placeholder="RUC">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="RAZON_SOCIAL" placeholder="Razón Social">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="TELEFONO" placeholder="Teléfono">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="CREDITO" placeholder="Crédito">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="CORREO" placeholder="Correo">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="DIRECCION" placeholder="Dirección">
+      </div>
+      
+      <button class="btn btn-primary btn-block">
+        Save 
+      </button>
+    </form>
+  </div>
+</div>
+
+
+ 
+
+
+  
+
+
+<div class="col-md-7">
+<table class="table table-striped thead-dark table-hover table-bordered table-sm bg-white ">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">RUC</th>
+            <th scope="col">Razón Social</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Crédito</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Dirección</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+    {% for cliente in cliente %}
+    <tr>
+        <td class="table-success">{{cliente.0}}</td>
+        <td class="table-success">{{cliente.1}}</td>
+        <td class="table-success">{{cliente.2}}</td>
+        <td class="table-success">{{cliente.3}}</td>
+        <td class="table-success">{{cliente.4}}</td>
+        <td class="table-success">{{cliente.5}}</td>
+        <td>
+          <a href="/edit/{{cliente.0}}" class="btn btn-warning">edit</a>
+          <a href="/delete/{{cliente.0}}" class="btn btn-danger btn-delete">delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+
+
+    </tbody>
+</table>
+</div>
+    <div class="col-md-8">
+        <table class="table table-striped table-hover table-bordered table-sm bg-white">
+            <thead  class="thead-dark">
+                <tr>
+                  <th scope="col">RUC</th>
+                  <th scope="col">Razón Social</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Crédito</th>
+                    <th scope="col">N*Pedido</td>
+                    <th scope="col">Fecha Pedido</td>
+                    <th scope="col">Dirección</td>
+                    <th scope="col">Correo</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for clientex in clientex %}
+                <tr>
+                    <td class="table-success">{{clientex.0}}</td>
+                    <td class="table-success">{{clientex.1}}</td>
+                    <td class="table-success">{{clientex.2}}</td>
+                    <td class="table-success">{{clientex.3}}</td>
+                    <td class="table-success">{{clientex.6}}</td>
+                    <td class="table-success">{{clientex.7}}</td>
+                    <td class="table-success">{{clientex.4}}</td>
+                    <td class="table-success">{{clientex.5}}</td>
+                    <td>
+            
+                   </td>
+                </tr>
+                {% endfor %}
+           </tbody>
+           
+           </table>
+       
+           <!-- <a href="#" class="btn btn-danger btn-delete">Siguiente paso</a> -->
+    </div>
+    
+    
+    <div id="siguientepaso">
+      <form action="/datos_extra" method= "POST"> 
+         <button class="btn btn-danger btn-block">
+           Siguiente paso
+         </button>
+       </form>
+    </div>
+  
+
+</div>
+
+</div>
+
+{% endblock %}
